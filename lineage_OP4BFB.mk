@@ -24,23 +24,23 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system_ext.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 
-# Inherit some common FusionOS stuff
-$(call inherit-product, vendor/fuse/config/common.mk)
+# Inherit some common LineageOS stuff
+$(call inherit-product, vendor/lineage/config/common.mk)
 
-# Inherit from RMX1941 device makefile
-$(call inherit-product, device/realme/RMX1941/device.mk)
+# Inherit from OP4BFB device makefile
+$(call inherit-product, device/oppo/OP4BFB/device.mk)
 
 # Dimen
-TARGET_SCREEN_HEIGHT := 1560
+TARGET_SCREEN_HEIGHT := 1520
 TARGET_SCREEN_WIDTH := 720
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := RMX1941
-PRODUCT_NAME := fuse_RMX1941
-PRODUCT_BRAND := realme
-PRODUCT_MODEL := Realme C2
-PRODUCT_MANUFACTURER := realme
-PRODUCT_RELEASE_NAME := Realme C2
+PRODUCT_DEVICE := OP4BFB
+PRODUCT_NAME := lineage_OP4BFB
+PRODUCT_BRAND := OPPO
+PRODUCT_MODEL := CPH2083
+PRODUCT_MANUFACTURER := OPPO
+PRODUCT_RELEASE_NAME := OPPO A12
 
 # Build FP
 BUILD_FINGERPRINT := "google/sunfish/sunfish:11/RQ2A.210305.006/7119741:user/release-keys"

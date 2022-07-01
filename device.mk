@@ -14,16 +14,13 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/realme/RMX1941
+DEVICE_PATH := device/oppo/OP4BFB
 
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
-# GcamGO
-$(call inherit-product, packages/apps/CameraGo/Android.mk)
 
 # Realme MTK-IMS
 $(call inherit-product, vendor/realme-ims/realme-ims-vendor.mk)
@@ -34,12 +31,12 @@ PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay \
-    $(DEVICE_PATH)/overlay-fuse
+    $(DEVICE_PATH)/overlay-lineage
 
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 29
-PRODUCT_EXTRA_VNDK_VERSIONS := 29
-PRODUCT_SHIPPING_API_LEVEL := 29
+PRODUCT_TARGET_VNDK_VERSION := 28
+PRODUCT_EXTRA_VNDK_VERSIONS := 28
+PRODUCT_SHIPPING_API_LEVEL := 28
 
 # FSTAB
 PRODUCT_COPY_FILES += \
@@ -111,7 +108,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.RMX1941
+    android.hardware.light@2.0-service.OP4BFB
 
 # Telephony
 PRODUCT_BOOT_JARS += \
@@ -125,10 +122,6 @@ PRODUCT_BOOT_JARS += \
 
 PRODUCT_PACKAGES += \
     libshim_vtservice
-
-# ImsInit hack
-PRODUCT_PACKAGES += \
-    ImsInit
 
 # RcsService
 PRODUCT_PACKAGES += \
@@ -172,4 +165,4 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 -include $(DEVICE_PATH)/configs/mtk_services_log.mk
 
 # Inherit Device Vendor
-$(call inherit-product, vendor/realme/RMX1941/RMX1941-vendor.mk)
+#$(call inherit-product, vendor/oppo/OP4BFB/OP4BFB-vendor.mk)
